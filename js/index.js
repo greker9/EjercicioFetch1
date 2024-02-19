@@ -1,27 +1,31 @@
-fetch("https://api.escuelajs.co/api/v1/users?limit=7")
+fetch("https://api.escuelajs.co/api/v1/categories?limit=6")
     .then(res => res.json())
     .then(data => {
         let card = '';
         for (let db of data) {
-            card += `<div class="card mb-3 text-bg-success" style="width: 18rem;">
-           
-           
-            <img src="${db.avatar}" class="card-img-top" alt="${db.name}">
-           
-           
-            <div class="card-body">
-                <h5 class="card-title">${db.name}</h5>
-               
-            </div>
-
-
-            <ul class="list-group list-group-flush">
+            card += `<div class="group" style="width: 18rem;">
+            <div class="card bg-danger">
             
-                <li class="list-group-item"><strong>Correo Electronico:</strong> ${db.email}</li>
-                <li class="list-group-item"><strong>Contraseña:</strong> ${db.password}</li>
-               
-            </ul>
+            
+            
+            <img src="${db.image}" class="card-img-top" alt="${db.name}">
+           
+           
+           
+           
+            <div class="card-body text-center">
+                <h5 class="card-title">${db.name}</h5>
+          
+            </div>
+            </div>
+            
         </div>`
+
+
+
+        
         }
         document.getElementById("lista").innerHTML = card
     })
+
+   
